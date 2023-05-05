@@ -1,0 +1,30 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.home > h3 {
+  background: #000;
+}
+.box{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 0.5px;
+  row-gap: 1em;
+  background: #a3a2a2;
+  padding-top: 10px;
+  border-radius: 5px;
+}
+.ticket-book-container{
+  height: 100vh;
+  background: #a3a2a2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-group h5{
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgb(9, 227, 155);
+}
