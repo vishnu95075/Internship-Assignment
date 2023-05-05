@@ -3,6 +3,7 @@
 ## How to run my project 
 1. Clone using the following repo link
    #### `https://github.com/vishnu95075/Internship-Assignment.git`
+   ### `git clone https://github.com/vishnu95075/Internship-Assignment.git`
 
 2. Go to the project folder and run npm install
    #### `cd Internship-Assignment`
