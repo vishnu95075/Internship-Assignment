@@ -14,5 +14,6 @@
 
 ### No More Feature and Error Fixed
    - input field is not checked before saving the user data.
-   - Authentication is not available
-   - Not more intractive UI/UX design 
+   - Authentication is not available.
+   - Not more intractive UI/UX design. 
+   - Null value is not handle.
