@@ -12,8 +12,6 @@ const Home = () => {
                 const response = await fetch(API_URL);
                 const data = await response.json();
 
-                console.log("response data : ", response);
-                console.log("Data is : ", data);
                 if (data) {
                     setdata(data);
                 }
@@ -22,8 +20,7 @@ const Home = () => {
                 }
 
             } catch (error) {
-                console.log(error);
-
+              
             }
         }
         fetchData();
@@ -31,12 +28,10 @@ const Home = () => {
 
     return (
         <div className="App  home">
-            <h3 style={{ color: "blue", textAlign: "center" }}>Movies List</h3>
             <div className='box' >
                 {
                     data.map((e, index) => {
                         let { show: { image } } = e;
-                        console.log("Name is ", e.show.name);
                         let movieImg = Object.create(null);
                         for (let i in image) {
                             movieImg.key = i;
