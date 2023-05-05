@@ -1,3 +1,48 @@
+
+# How to Install - Step by Step Guide
+## How to run my project 
+1. Clone using the following repo link
+   #### `https://github.com/vishnu95075/Internship-Assignment.git`
+
+2. Go to the project folder and run npm install
+   #### `cd Internship-Assignment`
+   #### `npm install`
+
+3. Now run your app
+   #### `npm start`
+
+##### Note - my-first-project - you can change this with your project name.
+
+
+# Reactjs Installation
+
+Reactjs can be installed by using any of the following ways:
+
+1. npx
+2. npm
+3. yarn
+4. create-react-app
+
+# 1. Using NPX
+- it’s a package runner tool that comes with npm 5.2+
+## npx create-react-app my-first-project
+
+# 2. Using NPM
+- it is available in npm 6+
+## npm init react-app my-first-project
+
+# 3. Using Yarn 
+- it is available in Yarn 0.25+
+## yarn create react-app my-first-project
+
+After installing reactjs using any of the above method
+Go to the your project folder and run your react app
+
+### cd my-first-project
+### npm start
+
+Note: my-first-project is the name of your react app/project, you can change it as per your interest/requirement.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
