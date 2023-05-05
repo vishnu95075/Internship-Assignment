@@ -3,20 +3,16 @@ import { useLocation } from 'react-router-dom';
 
 const TicketBook = () => {
   const location = useLocation();
-
   const [userName, setUserName] = useState();
   const [userEmail, setUserEmail] = useState();
 
   const moviesData = location.state?.moviesData;
   let moviePrice = 10;
 
-
   const onSubmit = () => {
     var user = { 'name': userName, 'email': userEmail };
     localStorage.setItem('user', JSON.stringify(user));
-    
   }
-  
 
   return (
     <div className='ticket-book-container' >
@@ -24,6 +20,7 @@ const TicketBook = () => {
         <img src={moviesData.Poster} className="card-img-top" alt={moviesData.Title} style={{ height: "18rem" }} />
         <div className="card-body">
           <h6 className="card-title">{moviesData.Title}</h6>
+          <p>Language : {moviesData.Language}</p>
         </div>
       </div>
       <div >

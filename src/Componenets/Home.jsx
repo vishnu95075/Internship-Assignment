@@ -4,21 +4,23 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
     const [data, setdata] = useState([]);
-    const API_URL = `http://www.omdbapi.com/?apikey=3ef9961d&s=titanic`;
+    const API_URL = `https://api.tvmaze.com/search/shows?q=all`;
 
     useEffect(() => {
         async function fetchData() {
             try {
                 const response = await fetch(API_URL);
-                const d = await response.json();
-                console.log(d);
-                console.log(d.Response);
-                if (d.Response) {
-                    setdata(d.Search);
+                const data = await response.json();
+
+                console.log("response data : ", response);
+                console.log("Data is : ", data);
+                if (data) {
+                    setdata(data);
                 }
                 else {
                     fetchData();
                 }
+
             } catch (error) {
                 console.log(error);
 
@@ -33,19 +35,30 @@ const Home = () => {
             <div className='box' >
                 {
                     data.map((e, index) => {
+                        let { show: { image } } = e;
+                        console.log("Name is ", e.show.name);
+                        let movieImg = Object.create(null);
+                        for (let i in image) {
+                            movieImg.key = i;
+                            movieImg[movieImg.key] = image[i];
+                        }
+
                         return (
                             <div key={index} className='container ' >
                                 <div className="card " style={{ width: "18rem" }}>
-                                    <img src={e.Poster} className="card-img-top" alt={e.Title} style={{ height: "18rem" }} />
+                                    <img src={movieImg.original} className="card-img-top" alt={e.Title} style={{ height: "18rem" }} />
                                     <div className="card-body">
-                                        <h5 className="card-title">{e.Title}</h5>
+                                        <h5 className="card-title">{e.show.name}</h5>
                                         <p className="card-text">
-                                            Release Year : {e.Year}
+                                            Language : {e.show.language || 3} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            Rating : {e.show.rating.average}
                                         </p>
+
                                         <Link to="/ticketbook" state={{
                                             moviesData: {
-                                                Title: e.Title,
-                                                Poster: e.Poster
+                                                Title: e.show.name,
+                                                Poster: movieImg.original,
+                                                Language: e.show.language
                                             }
                                         }} className="btn btn-primary">Book Ticket</Link>
                                     </div>
@@ -53,7 +66,6 @@ const Home = () => {
                             </div>
                         )
                     })
-
                 }
             </div>
         </div>
