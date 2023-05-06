@@ -3,15 +3,23 @@ import { useLocation } from 'react-router-dom';
 
 const TicketBook = () => {
   const location = useLocation();
-  const [userName, setUserName] = useState();
-  const [userEmail, setUserEmail] = useState();
+  const [userName, setUserName] = useState("");
+  const [userEmail, setUserEmail] = useState("");
 
   const moviesData = location.state?.moviesData;
   let moviePrice = 10;
 
   const onSubmit = () => {
-    var user = { 'name': userName, 'email': userEmail };
-    localStorage.setItem('user', JSON.stringify(user));
+    if (userName.length === 0 || userEmail.length === 0) {
+      
+    }
+    else {
+      var user = { 'name': userName, 'email': userEmail };
+      localStorage.setItem('user', JSON.stringify(user));
+      setUserName("");
+      setUserEmail("");
+    }
+
   }
 
   return (
