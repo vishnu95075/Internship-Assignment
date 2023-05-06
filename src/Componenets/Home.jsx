@@ -20,7 +20,7 @@ const Home = () => {
                 }
 
             } catch (error) {
-              
+
             }
         }
         fetchData();
@@ -45,15 +45,17 @@ const Home = () => {
                                     <div className="card-body">
                                         <h5 className="card-title">{e.show.name}</h5>
                                         <p className="card-text">
-                                            Language : {e.show.language || 3} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            Rating : {e.show.rating.average}
+                                            Language : {e.show.language || 3}
+                                            <br />
+                                            Rating : {0 + e.show.rating.average}⭐
                                         </p>
 
                                         <Link to="/ticketbook" state={{
                                             moviesData: {
                                                 Title: e.show.name,
                                                 Poster: movieImg.original,
-                                                Language: e.show.language
+                                                Language: e.show.language,
+                                                Rating: e.show.rating.average
                                             }
                                         }} className="btn btn-primary">Book Ticket</Link>
                                     </div>

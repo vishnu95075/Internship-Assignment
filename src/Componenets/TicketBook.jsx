@@ -11,27 +11,31 @@ const TicketBook = () => {
 
   const onSubmit = () => {
     if (userName.length === 0 || userEmail.length === 0) {
-      
+      console.log("Empty");
     }
     else {
       var user = { 'name': userName, 'email': userEmail };
       localStorage.setItem('user', JSON.stringify(user));
       setUserName("");
       setUserEmail("");
+      console.log("name ", userName);
     }
 
   }
 
   return (
     <div className='ticket-book-container' >
-      <div className="card " style={{ width: "18rem", marginRight: "20px" }}>
+      <div className="card " style={{ width: "18rem", marginRight: "20px", marginTop: "1em" }}>
         <img src={moviesData.Poster} className="card-img-top" alt={moviesData.Title} style={{ height: "18rem" }} />
         <div className="card-body">
           <h6 className="card-title">{moviesData.Title}</h6>
-          <p>Language : {moviesData.Language}</p>
+          <p>Language : {moviesData.Language}
+            <br />
+            Rating : {0 + (moviesData.Rating)}⭐
+          </p>
         </div>
       </div>
-      <div >
+      <div className='form'>
         <div className="form-group">
           <h5 className='text-center mt-20'>Purchase {moviesData.Title}  Ticket</h5>
           <label htmlFor="exampleInputName1">Full Name</label>
